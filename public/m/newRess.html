@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/mui-master/dist/css/mui.min.css">
+    <link rel="stylesheet" href="./assets/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/mui-master/examples/hello-mui/css/mui.picker.css">
+    <link rel="stylesheet" href="./assets/mui-master/examples/hello-mui/css/mui.poppicker.css">
+    <link rel="stylesheet" href="./css/basc.css">
+    <script src="./assets/zepto/zepto.min.js"></script>
+    <script src="./assets/mui-master/dist/js/mui.min.js"></script>
+    <script src="./assets/mui-master/examples/hello-mui/js/mui.picker.js"></script>
+    <script src="./assets/mui-master/examples/hello-mui/js/mui.poppicker.js
+    "></script>
+    <script src="./assets/art-template-master/lib/template-web.js"></script>
+    <script src="./js/public.js"></script>
+    <script src="./js/city.js"></script>
+    <script src="./js/newRess.js"></script>
+    <style>
+        .btn-sure{
+            padding: 8px 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 公共模块 -->
+    <header class="mui-bar mui-bar-nav my-header">
+        <a href="./addRess.html" class="mui-icon mui-icon-back"></a>
+        <h1 id="title" class="mui-title">收获地址管理</h1>
+        <a href="./search.html" class="mui-icon mui-icon-search mui-pull-right"></a>
+    </header>
+    <nav class="mui-bar mui-bar-tab">
+        <a id="defaultTab" class="mui-tab-item" href="./index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="./category.html">
+            <span class="mui-icon mui-icon-bars"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="tab-webview-subpage-contact.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="./user.html">
+            <span class="mui-icon mui-icon-person"></span>
+            <span class="mui-tab-label">会员中心</span>
+        </a>
+    </nav>
+    <!-- end -->
+    <div class="mui-content">
+        <form class="mui-input-group">
+            <div class="mui-input-row">     
+                <input type="text" class="mui-input-clear" placeholder="请输入收货人姓名" name="userName">
+            </div>
+            <div class="mui-input-row">
+                <input type="text" class="mui-input-clear" placeholder="请输入邮政编号" name="yznum">
+            </div>
+            <div class="mui-input-row">
+                <input type="text" class="mui-input-clear" placeholder="请选择省市区" name="where" id="selectCity">
+            </div>
+            <div class="mui-input-row">
+                <input type="text" class="mui-input-clear" placeholder="详细地址" name="address">
+            </div>
+            <div class="mui-button-row">
+                <button type="button" class="mui-btn mui-btn-primary btn-sure">确认</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/mui-master/dist/css/mui.min.css">
+    <script src="./assets/mui-master/dist/js/mui.min.js"></script>
+    <link rel="stylesheet" href="./assets/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/basc.css">
+    <link rel="stylesheet" href="./css/product.css">
+    <script src="./assets/zepto/zepto.min.js"></script>
+    <script src="./assets/art-template-master/lib/template-web.js"></script>
+    <script src="./js/public.js"></script>
+    <script src="./js/product.js"></script>
+</head>
+<style>
+    .active{
+        color: #fff;
+        background-color: rgb(236, 142, 33);
+        border: none;
+    }
+</style>
+<body>
+    <header class="mui-bar mui-bar-nav my-header">
+        <a href="search-result.html" class="mui-icon mui-icon-back"></a>
+        <h1 id="title" class="mui-title">商品详情</h1>
+        <a href="" class="mui-icon mui-icon-search mui-pull-right"></a>
+    </header>
+    <nav class="mui-bar mui-bar-tab">
+        <a id="defaultTab" class="mui-tab-item" href="./index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="./category.html">
+            <span class="mui-icon mui-icon-bars"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="tab-webview-subpage-contact.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="./user.html">
+            <span class="mui-icon mui-icon-person"></span>
+            <span class="mui-tab-label">会员中心</span>
+        </a>
+    </nav>
+    <!-- end上下公共模块 -->
+
+    <div class="mui-content">
+
+    </div>
+</body>
+
+<script type="text/template" id="productInfo">
+    <div class="mui-slider">
+            <div class="mui-slider-group">
+                {{each pic}}
+                <div class="mui-slider-item">
+                    <img src="{{ $value.picAddr }}" alt="">
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <p>{{ proName }}</p>
+        <p><span>价格:</span><span>￥{{ price }}</span><span>￥{{ oldPrice }}</span></p>
+        <div class="size">
+            尺码:
+           <% for(var i=size.split("-")[0];i<=size.split("-")[1];i++){ %>
+            <span><%= i %></span>
+            <% } %>
+        </div>
+
+        <span>数量:</span>
+        <div class="mui-numbox" data-numbox-min="1" data-numbox-max="{{ num }}">
+           
+            <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+            <input class="mui-numbox-input" type="number" />
+          
+            <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+        </div>
+        <span>剩余:{{ num }}件</span>
+
+        <div class="shopCar">
+            <div class="lookCar">
+                <a href="javascript:;">
+
+                    查看购物车
+                </a>
+            </div>
+            <div class="addCar">
+                <a href="javascript:;">
+
+                    加入购物车
+                </a>
+            </div>
+        </div>
+</script>
+
+</html>

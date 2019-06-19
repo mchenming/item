@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/mui-master/dist/css/mui.min.css">
+    <script src="./assets/mui-master/dist/js/mui.min.js"></script>
+    <link rel="stylesheet" href="./assets/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/basc.css">
+    <link rel="stylesheet" href="./css/search.css">
+    <script src="./assets/art-template-master/lib/template-web.js"></script>
+    <script src="./assets/zepto/zepto.min.js"></script>
+    <script src="./js/public.js"></script>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav my-header">
+        <a href="index.html" class="mui-icon mui-icon-back"></a>
+        <h1 id="title" class="mui-title">搜索中心</h1>
+    </header>
+    <nav class="mui-bar mui-bar-tab">
+        <a id="defaultTab" class="mui-tab-item mui-active" href="./index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="./category.html">
+            <span class="mui-icon mui-icon-bars"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="tab-webview-subpage-contact.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="./user.html">
+            <span class="mui-icon mui-icon-person"></span>
+            <span class="mui-tab-label">会员中心</span>
+        </a>
+    </nav>
+
+
+    <div class="mui-content">
+        <div class="search-top">
+            <input type="text" placeholder="搜索您喜欢的商品" id="ss">
+            <input type="button" value="搜索" id="btn">
+        </div>
+        <div class="history">
+            <div class="lefthis mui-pull-left">搜索历史</div>
+            <div class="clear mui-pull-right mui-icon mui-icon-trash">清除历史</div>
+        </div>
+        <div class="footer">
+            <ul class="mui-table-view" id="historyShow">
+                <!-- <li class="mui-table-view-cell">Item 1</li>
+                <li class="mui-table-view-cell">Item 2</li>
+                <li class="mui-table-view-cell">Item 3</li> -->
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script type="text/template" id="historyInfo">
+    {{each data as value }}
+        <li class="mui-table-view-cell chockhis">{{ value }}</li>
+    {{/each}}
+</script>
+
+<script>
+    $(function () {
+
+        //创建一个对象来获取本地浏览器的缓存 数据  数据名字为spName的
+
+        // 字符串转换成数组
+        var spArr = JSON.parse(localStorage.getItem("spName") || "[]")
+        // console.log(spArr)
+
+        //将本地缓存的浏览历史渲染在页面上
+
+        var str = template("historyInfo", { data: spArr })
+        // console.log(str)
+        $("#historyShow").html(str)
+        $("#btn").click(function () {
+            //点击搜索按钮  将搜索的内容用变量接收  
+            var sp = $("#ss").val()
+            //如果输入的搜索值长度为0那么退出  不执行后面的代码
+            if ($("#ss").val().length == 0) {
+                return mui.alert("请输入关键字")
+            } else {
+                // 如果有的输入值那么将输入的值追加进输入里面
+                spArr.push(sp)
+                //将输入的值保留在本地缓存
+                // JSON格式数组转换成字符串
+                localStorage.setItem("spName", JSON.stringify(spArr))
+                //跳转到搜索结果的页面      携带keyword搜索值   方便后台查询
+                location.href = "search-result.html?keyword=" + sp
+            }
+        })
+        $(".chockhis").on("click",function(){
+            var sp = $(this).text()
+            location.href = "search-result.html?keyword=" + sp
+        })
+
+        //点击清除按钮删除本地缓存localStorage缓存
+        $(".clear").on("click", function () {
+            $("#historyShow").html("")
+            localStorage.removeItem("spName")
+            spArr=[]
+        })
+    })
+</script>
+
+</html>

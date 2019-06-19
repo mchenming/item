@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.my-header {
+  background-color: #3fade4;
+}
+.my-header h1 {
+  color: #fff;
+}
+.my-header .mui-icon {
+  color: #fff;
+}
+.mui-bar-tab {
+  background-color: #3fade4;
+}
+.mui-bar-tab .mui-tab-item {
+  color: #fff;
+}
+.mui-bar-tab .mui-tab-item.mui-active {
+  color: #cbf709;
+}
+.mui-content {
+  background-color: #fff;
+}
+.mui-content .nav-links {
+  padding: 10px;
+  display: flex;
+  flex-flow: wrap;
+}
+.mui-content .nav-links a {
+  width: 33.33%;
+}
+.mui-content .nav-links a img {
+  width: 100%;
+  display: block;
+}
+.mui-content .product {
+  padding: 10px;
+}
+.mui-content .product > img {
+  width: 100%;
+}
+.mui-content .product > ul {
+  overflow: hidden;
+  list-style: none;
+}
+.mui-content .product > ul > li {
+  float: left;
+  width: 25%;
+}
+.mui-content .product > ul > li a {
+  display: block;
+}
+.mui-content .product > ul > li a img {
+  width: 100%;
+  display: block;
+}
+.mui-content .alive {
+  padding: 10px;
+}
+.mui-content .alive > img {
+  width: 100%;
+}
+.mui-content .alive ul {
+  overflow: hidden;
+  list-style: none;
+}
+.mui-content .alive ul li {
+  width: 50%;
+  float: left;
+  padding: 5px 5px;
+}
+.mui-content .alive ul li a {
+  display: block;
+  width: 100;
+  padding: 0 5px;
+  box-shadow: 0 0 8px #ccc;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 16px;
+  text-align: center;
+}
+.mui-content .alive ul li a img {
+  width: 100%;
+}
+.mui-content .alive ul li a span {
+  display: block;
+  height: 40px;
+  overflow: hidden;
+}
+.mui-content .alive ul li a p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: red;
+}
+.mui-content .alive ul li a p del {
+  color: #ccc;
+  font-size: 12px;
+}
+.mui-content .alive ul li a .my-btn {
+  background-color: #3fade4;
+  border: none;
+  color: #fff;
+  margin-bottom: 10px;
+}

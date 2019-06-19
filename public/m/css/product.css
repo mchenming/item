@@ -1,0 +1,58 @@
+.mui-content {
+  background-color: #fff;
+}
+.mui-content > img {
+  width: 100%;
+}
+.mui-content > p:nth-of-type(1) {
+  padding: 0 10px;
+  font-size: 16px;
+  color: #000;
+}
+.mui-content > p:nth-of-type(2) {
+  color: #000;
+  font-size: 16px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.mui-content > p:nth-of-type(2) > span:nth-of-type(2) {
+  color: orangered;
+  font-size: 24px;
+  margin: 0 5px;
+}
+.mui-content > p:nth-of-type(2) > span:nth-of-type(3) {
+  color: #ccc;
+  text-decoration: line-through;
+}
+.mui-content .size > span {
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+.mui-content > span {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+.mui-content .shopCar {
+  width: 94%;
+  margin: 10px auto;
+  display: flex;
+}
+.mui-content .shopCar a {
+  display: block;
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+}
+.mui-content .shopCar .lookCar {
+  width: 50%;
+  background-color: #e23939;
+}
+.mui-content .shopCar .addCar {
+  background-color: #ec8b0c;
+  width: 50%;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/mui-master/dist/css/mui.min.css">
+    <script src="./assets/mui-master/dist/js/mui.min.js"></script>
+    <link rel="stylesheet" href="./assets/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/basc.css">
+    <script src="./assets/art-template-master/lib/template-web.js"></script>
+    <script src="./assets/zepto/zepto.min.js"></script>
+    <script src="./js/public.js"></script>
+    <script src="./js/user.js"></script>
+    <style>
+        .mui-content .mui-table-view {
+            margin-top: 0 !important;
+        }
+
+        .mui-content .mui-table-view li {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav my-header">
+        <a href="" class="mui-icon mui-icon-back"></a>
+        <h1 id="title" class="mui-title">个人中心</h1>
+        <a href="search.html" class="mui-icon mui-icon-search mui-pull-right"></a>
+    </header>
+
+
+    <div class="mui-content">
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell mui-media userMes">
+                <!-- <a href="javascript:;">
+                    <img class="mui-media-object mui-pull-left" src="./images/user.jpg">
+                    <div class="mui-media-body">
+                        12312313245
+                        <p class='mui-ellipsis'>账号:11</p>
+                    </div>
+                </a> -->
+            </li>
+            <li class="mui-table-view-cell">
+                <a href="./recompose.html" class="mui-navigate-right">修改密码</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right">我的购物车</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a href="./addRess.html" class="mui-navigate-right">收货地址管理</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a href="javascript:;" class="mui-text-center exit">退出登录</a>
+            </li>
+        </ul>
+    </div>
+
+    <nav class="mui-bar mui-bar-tab">
+        <a id="defaultTab" class="mui-tab-item" href="./index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="./category.html">
+            <span class="mui-icon mui-icon-bars"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="tab-webview-subpage-contact.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="./user.html">
+            <span class="mui-icon mui-icon-person"></span>
+            <span class="mui-tab-label">会员中心</span>
+        </a>
+    </nav>
+</body>
+<script type="text/template" id="userInfo">
+    <a href="javascript:;">
+        <img class="mui-media-object mui-pull-left" src="./images/user.jpg">
+            <div class="mui-media-body">
+                {{ mobile }}
+                        <p class='mui-ellipsis'>{{ username }}</p>
+            </div>
+                </a>
+</script>
+<script>
+    //调用模板引擎数据渲染
+    var str=template("userInfo",obj)
+    console.log(str)
+    $(".userMes").html(str)
+</script>
+
+</html>

@@ -1,0 +1,20 @@
+.mui-content .requestNum {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #006699;
+  font-size: 14px;
+}
+.mui-content .awayLogin {
+  display: block;
+  text-align: right;
+  margin-top: 20px;
+  padding-right: 10px;
+  color: #006699;
+  width: 100%;
+  border-bottom: 1px solid #666;
+}
+.mui-content .newUser {
+  margin-top: 10px;
+}

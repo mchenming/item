@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/mui-master/dist/css/mui.min.css">
+    <script src="./assets/mui-master/dist/js/mui.min.js"></script>
+    <link rel="stylesheet" href="./assets/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/basc.css">
+    <link rel="stylesheet" href="./css/category.css">
+    <script src="./assets/zepto/zepto.min.js"></script>
+    <script src="./js/public.js"></script>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav my-header">
+        <a href="" class="mui-icon mui-icon-arrowleft"></a>
+        <h1 id="title" class="mui-title">乐淘云购</h1>
+        <a href="./search.html" class="mui-icon mui-icon-search mui-pull-right"></a>
+    </header>
+    <nav class="mui-bar mui-bar-tab">
+        <a id="defaultTab" class="mui-tab-item" href="./index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="./category.html">
+            <span class="mui-icon mui-icon-bars"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="tab-webview-subpage-contact.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="user.html">
+            <span class="mui-icon mui-icon-person"></span>
+            <span class="mui-tab-label">会员中心</span>
+        </a>
+    </nav>
+    <div class="mui-content">
+        <div class="mui-scroll-wrapper tube-left">
+            <div class="mui-scroll">
+                <ul id="choose">
+                    <!-- <li class="active"><a href="javascript:;">运动馆</a></li>
+                    <li><a href="javascript:;">女士馆</a></li>
+                    <li><a href="javascript:;">男士管</a></li>
+                    <li><a href="javascript:;">帆布馆</a></li>
+                    <li><a href="javascript:;">户外馆</a></li>
+                    <li><a href="javascript:;">女士馆</a></li>
+                    <li><a href="javascript:;">男士管</a></li>
+                    <li><a href="javascript:;">帆布馆</a></li>
+                    <li><a href="javascript:;">户外馆</a></li>
+                    <li><a href="javascript:;">女士馆</a></li>
+                    <li><a href="javascript:;">男士管</a></li>
+                    <li><a href="javascript:;">帆布馆</a></li>
+                    <li><a href="javascript:;">户外馆</a></li>
+                    <li><a href="javascript:;">女士馆</a></li>
+                    <li><a href="javascript:;">男士管</a></li>
+                    <li><a href="javascript:;">帆布馆</a></li>
+                    <li><a href="javascript:;">户外馆</a></li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="tube-right">
+            <ul id="twoTemp">
+                <li>
+                    <a href="">
+                        <img src="./images/brand1.png" alt="">
+                        <span>耐克</span>
+                    </a>
+                </li>
+                <li>
+                    <a href=""><img src="./images/brand2.png" alt="">
+                        <span>阿迪</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./images/brand3.png" alt="">
+                        <span>三叶草</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./images/brand4.png" alt="">
+                        <span>新百伦</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./images/brand5.png" alt="">
+                        <span>匡威</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script type="text/template" id="templateInfo">
+    {{each rows as value index}}
+        <li data-id={{ value["id"] }}><a href="javascript:;">{{ value["categoryName"] }}</a></li>
+    {{/each}}
+</script>
+
+<script type="text/template" id="twoInfo">
+    {{each rows as value index}}
+    <li>
+        <a href="">
+            <img src="{{ value["brandLogo"] }}" alt="">
+            <span>{{ value["brandName"] }}</span>
+        </a>
+    </li>
+    {{/each}}
+    
+    <% if(rows.length==0){ %>
+        <div class="nbody">暂无数据</div>
+        <% } %>
+    
+    
+</script>
+
+<script src="./assets/art-template-master/lib/template-web.js"></script>
+<script src="./assets/zepto/zepto.min.js"></script>
+<script>
+
+    mui('.mui-scroll-wrapper').scroll({
+        scrollY: true, //是否竖向滚动
+        scrollX: false, //是否横向滚动
+        startX: 0, //初始化时滚动至x
+        startY: 0, //初始化时滚动至y
+        indicators: false, //是否显示滚动条
+        deceleration: 0.0006, //阻尼系数,系数越小滑动越灵敏
+        bounce: true    //是否huitan
+    });
+
+    $(function () {
+
+        $.ajax({
+            url: "/category/queryTopCategory",
+            dataType: "json",
+            type: "get",
+            success: function (res) {
+                // console.log(res)
+                var str = template("templateInfo",res)
+                // console.log(str)
+                $("#choose").html(str)
+                $("#choose>li").eq(0).addClass("active")
+            }
+        })
+
+        $("#choose").on("click","li",function(){
+            $(this).addClass("active").siblings().removeClass("active")
+            // $(this).css({"backgroundColor":"#eee","border":"none"}).siblings().css({"backgroundColor":"#fff","border":""})
+           var id =$(this).attr("data-id")
+           console.log(id) 
+            $.ajax({
+                url:"/category/querySecondCategory",
+                type:"get",
+                data:{
+                    id:id
+                },
+                dataType:"json",
+                success:function(res){
+                    console.log(res)
+                    var str =template("twoInfo",res)
+                    console.log(str)
+                    $("#twoTemp").html(str)
+                }
+            })
+            
+        })
+        
+
+    })
+</script>
+
+</html>

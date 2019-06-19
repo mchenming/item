@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.my-header {
+  background-color: #3fade4;
+}
+.my-header h1 {
+  color: #fff;
+}
+.my-header .mui-icon {
+  color: #fff;
+}
+.mui-bar-tab {
+  background-color: #3fade4;
+}
+.mui-bar-tab .mui-tab-item {
+  color: #fff;
+}
+.mui-bar-tab .mui-tab-item.mui-active {
+  color: #cbf709;
+}

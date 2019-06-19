@@ -1,0 +1,69 @@
+@import "base.css";
+#refreshContainer {
+  position: absolute;
+  top: 44px;
+  bottom: 45px;
+}
+#refreshContainer .alive {
+  padding: 10px;
+}
+#refreshContainer .alive > img {
+  width: 100%;
+}
+#refreshContainer .alive ul {
+  overflow: hidden;
+  list-style: none;
+}
+#refreshContainer .alive ul li {
+  width: 50%;
+  float: left;
+  padding: 5px 5px;
+}
+#refreshContainer .alive ul li a {
+  display: block;
+  width: 100;
+  padding: 0 5px;
+  box-shadow: 0 0 8px #ccc;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 16px;
+  text-align: center;
+}
+#refreshContainer .alive ul li a img {
+  width: 100%;
+}
+#refreshContainer .alive ul li a span {
+  display: block;
+  height: 40px;
+  overflow: hidden;
+}
+#refreshContainer .alive ul li a p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: red;
+}
+#refreshContainer .alive ul li a p del {
+  color: #ccc;
+  font-size: 12px;
+}
+#refreshContainer .alive ul li a .my-btn {
+  background-color: #006699;
+  border: none;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.mui-row {
+  width: 94%;
+  text-align: center;
+  margin: auto;
+}
+.mui-row > div {
+  margin-top: 10px;
+  background-color: #ccc;
+  text-align: center;
+  height: 45px;
+  line-height: 45px;
+}
+.mui-row > div .mui-icon {
+  font-size: 14px;
+}
